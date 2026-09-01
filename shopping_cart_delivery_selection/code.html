@@ -108,13 +108,13 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-      <script src="../cart.js"></script>
+    <script src="../cart.js"></script>
 </head>
 <body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pb-24 md:pb-0">
 <!-- TopAppBar -->
 <header class="w-full top-0 sticky bg-background dark:bg-background z-40">
 <div class="flex justify-between items-center px-margin-mobile py-base w-full max-w-7xl mx-auto">
-<button class="p-2 -ml-2 text-primary dark:text-inverse-primary hover:bg-surface-container dark:hover:bg-surface-container transition-colors rounded-full active:scale-95 transition-transform">
+<button onclick="window.history.length > 1 ? window.history.back() : window.location.href='../annapurna_home_screen/code.html'" class="p-2 -ml-2 text-primary dark:text-inverse-primary hover:bg-surface-container dark:hover:bg-surface-container transition-colors rounded-full active:scale-95 transition-transform">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
 </button>
 <h1 class="font-headline-md text-headline-md text-primary dark:text-inverse-primary tracking-tight">Your Cart</h1>
@@ -207,9 +207,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="flex flex-col items-end gap-sm">
                         <span class="font-label-md text-label-md text-primary-container">₹${totalItemPrice}</span>
                         <div class="flex items-center gap-xs bg-surface-container rounded-full px-2 py-1">
-                            <button onclick="AnnapurnaCart.updateQuantity('${itemNameEscaped}', -1); window.dispatchEvent(new Event('cartUpdated'))" class="p-1 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
-                            <span class="font-label-sm text-label-sm w-4 text-center">${item.quantity || 1}</span>
-                            <button onclick="AnnapurnaCart.updateQuantity('${itemNameEscaped}', 1); window.dispatchEvent(new Event('cartUpdated'))" class="p-1 rounded-full text-primary-container hover:bg-primary-fixed transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+                            <button onclick="AnnapurnaCart.updateQuantity('${item.id}', -1); renderCart();" class="p-1 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+                                <span class="font-label-sm text-label-sm w-4 text-center">${item.quantity || 1}</span>
+                            <button onclick="AnnapurnaCart.updateQuantity('${item.id}', 1); renderCart();" class="p-1 rounded-full text-primary-container hover:bg-primary-fixed transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
                         </div>
                     </div>
                 </div>`;
