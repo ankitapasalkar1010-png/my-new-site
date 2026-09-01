@@ -2,8 +2,7 @@
 const AnnapurnaCart = {
     getKey: () => 'annapurna_cart',
     
-    getItems: function() {Working.
-    
+    getItems: function() {
         try {
             const data = localStorage.getItem(this.getKey());
             return data ? JSON.parse(data) : [];
